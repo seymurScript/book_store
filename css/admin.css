@@ -1,3 +1,4 @@
+@import url(./font.css);
 body{
     margin: 0;
     width: 1140px;
@@ -161,7 +162,6 @@ ul{
     font-family: Montserrat;
     font-size: 18px;
     padding-bottom: 12px;
-    letter-spacing: 1.5px;
     font-style: normal;
     font-weight: 400;
     line-height: 196.187%;
@@ -180,6 +180,14 @@ ul{
     margin-right: 58px;
     gap: 6px;
     justify-content: end;
+}
+.profileTitle{
+    font-family: Roboto;
+    padding-top: 6px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .addTitle{
     color:#333;

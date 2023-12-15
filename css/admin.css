@@ -207,9 +207,48 @@ ul{
     font-weight: 600;
     line-height: 196.187%;
 }
-.searchGroup{
-    width: 30%;
-}
 .search{
     display: flex;
+    flex-direction: column;
+}
+.searchBar{
+    display: flex;
+    align-items: center;
+}
+.searchInput{
+    border-radius: 34px;
+    border: 2px solid rgba(57, 31, 0, 0.48);
+    background: #FFF;
+    height: 41px;
+    width: 30%;
+    padding-left: 33px;
+    color: #ADADAD;
+    margin-right: 8px;
+    font-family: Preah Vihear;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    flex-shrink: 0;
+}
+.searchBtn{
+    border-radius: 34px;
+    background: #FF8B00;
+    padding: 0px;
+}
+.searchIcon{
+    padding: 6px 24px;
+}
+.suggBox{
+    border-radius: 35px;
+    padding-top: 17px;
+    width: 33%;
+    margin-top: 6px;
+    padding-bottom: 11px;
+    background: #F1F0F0;
+}
+.suggItem{
+    display: flex;
+    margin-left: 36px;
+    flex-direction: row;
 }

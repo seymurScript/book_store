@@ -45,8 +45,6 @@
     color: var(--braun);
 }
 
-.image img {}
-
 @media screen and (max-width:1270px) {
 
     .container h2 {

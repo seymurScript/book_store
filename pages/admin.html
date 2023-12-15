@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Store/admin</title>
+
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 <body>
     <!-- <div id="adminlogin">
@@ -17,28 +19,28 @@
         </div>
     </div> -->
     <div id="adminPanel">
-        <nav>
+        <nav class="nav1">
             <img id="navLogo" src="../assets/images/adminNavLogo.svg"/>
-            <ul>
+            <ul >
                 <li class="navLink">
                     <img class="navIcon" src="../assets/icons/navIcon.svg"/>
                     <a href="#" class="navItem">Home</a>
                 </li>
                 <li class="navLink">
                     <img class="navIcon" src="../assets/icons/navIcon.svg"/>
-                    <a href="#"  class="navItem">Books</a>
+                    <a href="#booksection"  class="navItem">Books</a>
                 </li>
                 <li class="navLink">
                     <img class="navIcon" src="../assets/icons/navIcon.svg"/>
-                    <a href="#"  class="navItem">About</a>
+                    <a href="#aboutSection"  class="navItem">About</a>
                 </li>
                 <li class="navLink">
                     <img class="navIcon" src="../assets/icons/navIcon.svg"/>
-                    <a href="#" class="navItem">Join Us</a>
+                    <a href="#joinUsSection" class="navItem">Join Us</a>
                 </li>
                 <li class="navLink">
                     <img class="navIcon" src="../assets/icons/navIcon.svg"/>
-                    <a href="#" class="navItem">Contact</a>
+                    <a href="#contactSection" class="navItem">Contact</a>
                 </li>
                 <li class="navLink">
                     <img class="navIcon" src="../assets/icons/navIcon.svg"/>
@@ -47,6 +49,47 @@
             </ul>
         </nav>
         <div class="main">
+            <nav class="nav2">
+                <img class="resLogo" src="../assets/icons/resLogoAdmin.svg" alt="">
+                <img onclick="openNav()" class="hamBar" src="../assets/icons/hamburgerAdmin.svg" alt="">
+            </nav>
+            <div id="myNav" class="overlay">
+                <div id="redZone">
+                    <div class="overlayHead">
+                        <img class="hamLogo" src="../assets/icons/hambarLogo.svg" alt="">
+                        <img class="closeBtn" onclick="closeNav()" src="../assets/icons/admincloseBtn.svg" alt="">
+                    </div>
+                    <div class="overlay-content">
+                        <ul class="hamList">
+                            <li class="hamLink">
+                                <img class="navIcon" src="../assets/icons/hamIcon.svg"/>
+                                <a href="#" class="hamItem">Home</a>
+                            </li>
+                            <li class="hamLink">
+                                <img class="navIcon" src="../assets/icons/hamIcon.svg"/>
+                                <a href="#" class="hamItem">Books</a>
+                            </li>
+                            <li class="hamLink">
+                                <img class="navIcon" src="../assets/icons/hamIcon.svg"/>
+                                <a href="#" class="hamItem">About</a>
+                            </li>
+                            <li class="hamLink">
+                                <img class="navIcon" src="../assets/icons/hamIcon.svg"/>
+                                <a href="#" class="hamItem">Join Us</a>
+                            </li>
+                            <li class="hamLink">
+                                <img class="navIcon" src="../assets/icons/hamIcon.svg"/>
+                                <a href="#" class="hamItem">Contact</a>
+                            </li>
+                            <li class="hamLink">
+                                <img class="navIcon" src="../assets/icons/hamIcon.svg"/>
+                                <a href="#" class="hamItem">Log Out</a>
+                            </li>
+                        </ul>
+                    
+                    </div>
+                </div>
+            </div>
             <div class="adminProfile">
                 <img class="profileImg" src="../assets/icons/adminProfile.svg" alt="profile">
                 <p class="profileTitle">Admin</p>
@@ -66,8 +109,102 @@
                         </div>
                     </div>
                 </div>
+                <p id="booksection" class="bookFormTitle">Book form</p>
+                <form class="bookForm">
+                    <div class="formSection">
+                        <label for="book_name">Book Name</label>
+                        <input type="text" id="book_name">
+                    </div>
+                    <div class="formSection">
+                        <label for="author_name">Author Name</label>
+                        <input type="text" id="author_name">
+                    </div>
+                    <div class="formSection">
+                        <label for="img_url">Book Image URL</label>
+                        <input type="text" id="img_url">
+                    </div>
+                    <div class="formSection">
+                        <label for="description">Description</label>
+                        <input type="text" id="description">
+                    </div>
+                    <div class="formSection">
+                        <label for="book_type">Book Type</label>
+                        <input id="book_type" type="text">
+                    </div>
+                    <button id="bookFormBtn" class="addBtn">Add</button>
+                </form>
+                <p id="aboutSection" class="aboutFormTitle">About Store</p>
+                <form class="aboutForm">
+                    <div class="formSection">
+                        <label for="book_title">Title</label>
+                        <input type="text" id="book_title">
+                    </div>
+                    <div class="formSection">
+                        <label for="about_img_url">Book Image URL</label>
+                        <input type="text" id="about_img_url">
+                    </div>
+                    <div class="formSection">
+                        <label for="about_description">Description</label>
+                        <input type="text" id="about_description">
+                    </div>
+                    <button id="aboutFormBtn" class="addBtn">Add About Info</button>
+                </form>
+                <p id="joinUsSection" class="joinUsTitle">Join Us</p>
+                <table class="joinTable">
+                    <tr class="joinTr">
+                        <th class="joinTh">#</th>
+                        <th class="joinTh">Full Name</th>
+                        <th class="joinTh">Email Adress</th>
+                    </tr>
+                    <tr class="joinTr">
+                        <td class="joinId">1</td>
+                        <td class="joinName">Jhon Doe</td>
+                        <td class="joinMail">jhonDoe@gmail.com</td>
+                    </tr>
+                    <tr class="joinTr">
+                        <td class="joinId">1</td>
+                        <td class="joinName">Jhon Doe</td>
+                        <td class="joinMail">jhonDoe@gmail.com</td>
+                    </tr>
+                </table>
+                <p id="booksSection" class="booksTitle">Books</p>
+                <table class="booksTable">
+                    <tr class="booksTr">
+                        <th class="booksTh">#</th>
+                        <th class="booksTh">Title</th>
+                        <th class="booksTh">Description</th>
+                        <th class="booksTh">Category</th>
+                        <th class="booksTh">Author</th>
+                    </tr>
+                    <tr class="booksTr">
+                        <td class="booksId">1</td>
+                        <td class="bookTitle"><img src="https://m.media-amazon.com/images/M/MV5BNmQ0ODBhMjUtNDRhOC00MGQzLTk5MTAtZDliODg5NmU5MjZhXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg" width="27px" height="36px" alt=""><p>Harry Poter</p></td>
+                        <td class="booksDescription">Best Book</td>
+                        <td class="booksCategory">Fantastic</td>
+                        <td class="booksCategory">John Brown</td>
+                    </tr>
+                </table>
+                <p id="contactUsSection" class="contactTitle">Contact Us</p>
+                <table class="contactTable">
+                    <tr class="contactTr">
+                        <th class="contactTh">#</th>
+                        <th class="contactTh">Full Name</th>
+                        <th class="contactTh">Address</th>
+                        <th class="contactTh">Email Address</th>
+                        <th class="contactTh">Phone Number</th>
+                    </tr>
+                    <tr class="contactTr">
+                        <td class="contactId">1</td>
+                        <td class="contactName">Qezenfer</td>
+                        <td class="contactAddress">Baku</td>
+                        <td class="contactMail">Qezenfer@gmail.com</td>
+                        <td class="contactPhone">(+994)-55-333-22-11</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
+
 </body>
+<script defer src="../js/responsive.js"></script>
 </html>

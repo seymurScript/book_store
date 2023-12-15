@@ -4,11 +4,13 @@ body{
     width: 1140px;
     padding: 0;
     box-sizing: border-box;
-    background-color: #720418;
+    
 }
 
 #adminlogin{
     width: 1440px;
+    height: 100vh;
+    background-color: #720418;
 }
 #logo{
     margin-left: 35px;
@@ -67,14 +69,14 @@ body{
 #signBtn:hover{
     background-color: #ff7700;
 }
-@media (max-width: 350px) {
+@media only screen and (max-width:320px) {
     body{
-        width: 350px;
+        width: 320px;
         padding: 0;
         box-sizing: border-box;
     }
     #adminlogin{
-        width: 350px;
+        width: 320px;
     }
     #logo {
         margin-left: 15px;
@@ -84,7 +86,7 @@ body{
     #loginform{
         width: fit-content;
         margin-top: 95px;
-        margin-left: 45px;
+        margin-left: 30px;
         display: flex;
         flex-direction: column;
         margin-right: 45px;
@@ -132,13 +134,19 @@ body{
     }
 }
 #adminPanel{
-    display: flex;
     width: 1440px;
+    display: flex;
     height: 100vh;
 }
-nav{
-    height: 100vh;
+.nav1{
+    height: 100%;
+    position: fixed;
+    z-index: 1;
     width: fit-content;
+    background-color: #720418;
+}
+.nav2{
+    display: none;
 }
 #navLogo{
     margin-left: 35px;
@@ -169,9 +177,10 @@ ul{
 }
 .main{
     width: 100%;
+    margin-left: 358px;
     position: relative;
     background-color:#FFFAF5;;
-    height: 100vh;
+    height: fit-content;
     padding-left: 33px;
 }
 .adminProfile{
@@ -209,6 +218,7 @@ ul{
 }
 .search{
     display: flex;
+    width: 100%;
     flex-direction: column;
 }
 .searchBar{
@@ -249,6 +259,302 @@ ul{
 }
 .suggItem{
     display: flex;
-    margin-left: 36px;
+    margin-bottom: 3px;
+    padding-left: 36px;
     flex-direction: row;
+}
+.suggTitle{
+    color: #BCBCBC;
+    font-family: Preah Vihear;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-style: normal;
+    margin-left: 8px;
+    font-weight: 400;
+    line-height: normal;
+}
+.bookFormTitle{
+    color:#333;
+    margin-top: 80px;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 196.187%
+}
+form{
+    padding: 16px 30px 30px 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 20px;
+    margin-right: 10%;
+    margin-bottom: 161px;
+    background: #FFF;
+    gap: 24px;
+}
+.formSection{
+    display: flex;
+    margin-bottom: 24px;
+    flex-direction: column;
+}
+.formSection label{
+    color:#030102;
+    font-family: Roboto;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.formSection input{
+    height: 40px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid #E2E6EE;
+    background: #FFF;
+    box-shadow: 0px 4px 18px 0px rgba(158, 168, 189, 0.31);
+}
+.addBtn{
+    border-radius: 10px;
+    background: #FF8B00;
+    height: 40px;
+    width: 100%;
+    color: #FFF;
+    font-family: Roboto;
+    margin-top: 24px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 12px 24px;
+}
+.aboutFormTitle{
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 196.187%;
+}
+.joinUsTitle{
+    font-family: Montserrat;
+    font-size: 30px;
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 196.187%;
+}
+.joinTable {
+    width: 60%;
+}
+th{
+    background-color: #720418;
+}
+td,th {
+    border: 0;
+    overflow: hidden;
+    max-width: 350px;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid #dddddd;
+    color :#FFF;
+    text-align: center;
+    font-family: Nunito Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 115%; /* 16.1px */
+    letter-spacing: 0.14px;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 16px;
+}
+td{
+    color: #000;
+    text-wrap: nowrap;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.booksTable{
+    width: 90%;
+}
+.bookTitle{
+    display: flex;
+    gap: 5px;
+    text-wrap: nowrap;
+    align-items: center;
+    text-align: center;
+}
+.booksTitle{
+    margin-top: 136px;
+    margin-bottom: 5px;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 196.187%;
+}
+.contactTitle{
+    margin-top: 136px;
+    margin-bottom: 5px;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 196.187%;
+}
+.contactTable{
+    width: 90%;
+    margin-bottom: 10%;
+}
+#myNav{
+    display: none;
+}
+@media only screen and (max-width:320px){
+    .nav1{
+        display: none;
+    }
+    .nav2{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .resLogo{
+        margin-top: 11px;
+    }
+    #myNav{
+        display: block;
+    }
+    .hamBar{
+        margin-right: 29px;
+        cursor: pointer;
+    }
+    .main{
+        margin-left: 0px;
+        width:320px;
+        padding-left: 13px;
+    }
+    #adminPanel{
+        width: 320px;
+    }
+    .adminProfile {
+        display: none;
+    }
+    form{
+        padding-left: 13px;
+        margin-right: 13px;
+    }
+    .addTitle{
+        font-family: Montserrat;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 600;
+        margin-bottom: 6px;
+        line-height: 196.187%;
+    }
+    .searchTitle{
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        margin-top: 0px;
+        line-height: 196.187%; 
+    }
+    .mainContent{
+        width: 320px;
+    }
+    table{
+        width: fit-content;
+    }
+    .searchInput{
+        width: 70%;
+        height: 36px;
+        flex-shrink: 0;
+        border-radius: 34px;
+        border: 2px solid rgba(57, 31, 0, 0.48);
+        background: #FFF;
+    }
+    .searchIcon{
+        padding: 0px;
+        margin: 3px 24px;
+    }
+    .searchBar{
+        display: flex;
+        width: 100%;
+    }
+
+    .bookTitle p{
+        margin-bottom: 0px;
+    }
+    .suggBox{
+        width: 70%;
+    }
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0);
+        background-color: rgba(0,0,0, 0.9);
+
+      }
+      .overlayHead{
+        display: flex;
+        justify-content: space-between;
+      }
+      .overlay-content {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+      #redZone{
+        background-color: #720418;
+        overflow-x: hidden;
+        transition: 0.5s;
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+      }
+      .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+      }
+      .hamLogo{
+        margin-top: 14px;
+        margin-left: 10px;
+      }
+      .closeBtn{
+        margin-right: 7px;
+        margin-top: 20px;
+      }
+      .hamList{
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        margin-left: -40px;
+      }
+      .hamLink{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        flex-direction: row;
+      }
+      .hamItem{
+        color: #FFF;
+        margin-top: 11px;
+        margin-bottom: 19px;
+        margin-left: 7px;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 196.187%;
+      }
+
 }

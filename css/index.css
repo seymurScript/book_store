@@ -1,7 +1,7 @@
 .homeBanner {
     /* width: 80%; */
     margin: 0 auto;
-    /* margin-left: 8%; */
+    margin-left: 8%;
     margin-top: 146px;
 
 }
@@ -27,7 +27,7 @@
 }
 
 .leftBanner p {
-    /* max-width: 370px; */
+    max-width: 370px;
     font-weight: 900;
     line-height: 26px;
     font-weight: 400;
@@ -53,50 +53,57 @@
 
 /* .rightBanner img {} */
 
-.home_catalog {
+.catalog_parent{
     margin-top: 132px;
 }
 
-.home_catalog h3 {
-    text-align: center;
-    color: var(--dark);
+
+.catalog_parent h3 {
     font-family: var(--montserrat);
+    color: var(--dark);
     font-size: 25px;
-    font-style: normal;
     font-weight: 900;
-    line-height: 49.05px;
-    margin-bottom: 49px;
+    line-height: 49px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 47px;
 }
 
-.home_catalog_box {
+.catalog {
     display: flex;
     flex-wrap: wrap;
     gap: 36px;
-    margin: auto;
-    align-items: center;
     justify-content: center;
-    /* width: 70%; */
+    align-items: center;
 }
 
-
-.home_box {
-    width: 242px;
+.ctlg_box {
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 10px;
-    background: var(--white);
-    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    width: 242px;
     height: 76px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 11px 0px #00000040;
+    background-color: var(--white);
+    border: none;
+    /* padding-bottom: 36px; */
+   
 }
 
-.home_box a {
-    color: var(--braun);
+.ctlg_box a {
     font-family: var(--montserrat);
     font-size: 14px;
     font-weight: 700;
-    line-height: 27.47px;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: center;
+
 }
+
+
+
+
 
 .home_aboutstore {
     margin-top: 136px;
@@ -153,7 +160,7 @@
 }
 
 .home_delivery {
-    /* width: 70%; */
+    width: 70%;
     margin: 0 auto;
     margin-bottom: 134px;
 }
@@ -170,7 +177,7 @@
 }
 
 .home_delivery p {
-    /* max-width: 1140px; */
+    max-width: 1140px;
     font-family: var(--montserrat);
     font-size: 12px;
     font-weight: 400;
@@ -239,32 +246,29 @@
         height: 280px;
     }
 
-    .home_catalog_box {
+    /* .home_catalog_box {
         display: flex;
         flex-direction: column;
-    }
+    } */
 
-    .home_box {
+    /* .home_box {
        min-width: 224px;
-    }
+    } */
 
-    .aboutstore_section {
-        display: flex;
-        /* flex-wrap: wrap; */
+     .aboutstore_section {
+        /* display: flex; */
+        /* flex-wrap: wrap;
         align-items: center;
         flex-direction: column;
         /* width: 67.36%; */
         /* margin: 0 auto; */
-    }
+    } 
 
-    .about_box {
+    /* .about_box {
         display: block;
         align-items: center;
         gap: 27px;
-    }
+    } */
 
 
 }
-
-
-

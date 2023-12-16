@@ -246,12 +246,9 @@
 
 .footer_items_container {
   width: 100%;
-  /* margin-left: 100px; */
   display: flex;
   justify-content: space-between;
   align-items: start;
-
-  /* gap: 20px;  */
 }
 
 .footer_popular_items,
@@ -262,8 +259,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin-left: 100px; */
-
   font-family: var(--montserrat);
 }
 
@@ -307,10 +302,7 @@
 
 .footer_contact_div p {
   font-size: 14px;
-  /* font-style: normal; */
   font-weight: 900;
-  /* line-height: 196.187%; */
-  /* margin: auto; */
   margin-bottom: 20px;
 }
 
@@ -319,9 +311,7 @@
   border: 1px solid var(--orange);
   color: var(--orange);
   font-size: 14px;
-  /* font-style: normal; */
   font-weight: 500;
-  /* line-height: 196.187%; */
   text-decoration: none;
   text-align: center;
   padding: 6px 36px 6px 6px;

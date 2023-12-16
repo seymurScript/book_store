@@ -1,0 +1,138 @@
+.contact_section {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 112px;
+    margin-bottom: 126px;
+}
+
+.contact_section h2 {
+    font-family: var(--montserrat);
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 71px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--dark_grey);
+}
+
+.input_family {
+    margin-top: 29px;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 36.54px;
+    margin: 0 auto;
+    margin-bottom: 33px;
+    ;
+}
+
+.contact_input {
+    width: 45%;
+    height: 75px;
+    border: 1px solid var(--border);
+}
+
+.contact_input::placeholder {
+    color: var(--placeHolder);
+    font-size: 23px;
+    font-weight: 400;
+    font-family: --crimson;
+    padding-left: 38px;
+}
+
+.input_message {
+    width: 100%;
+    height: 153px;
+    border: 1px solid var(--border);
+}
+
+.input_message::placeholder {
+    color: var(--placeHolder);
+    text-align: start;
+    font-size: 23px;
+    font-weight: 400;
+    font-family: var(--crimson);
+    padding-left: 38px;
+    padding-bottom: 107px;
+}
+
+.send_btn {
+    display: flex;
+    justify-content: center;
+}
+
+.send_btn button {
+    background-color: var(--orange);
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-family: var(--crimson);
+    font-weight: 400;
+    width: 45%;
+    height: 75px;
+    border: none;
+    margin-top: 85px;
+
+}
+
+@media screen and (max-width:600px) {
+    .contact_section {
+        width: 80%;
+        margin-top: 41px;
+        margin-bottom: 126px;
+    }
+
+    .contact_section h2 {
+        font-size: 25px;
+        line-height: 49px;
+        text-align: center;
+        color: var(--dark_grey);
+    }
+
+    .input_family {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact_input {
+        width: 100%;
+        height: 39px;
+    }
+
+    .contact_input::placeholder {
+        color: var(--braun);
+        padding-left: 15px;
+        font-size: 16px;
+    }
+
+    .input_message {
+        width: 100%;
+        height: 101px;
+    }
+
+    .input_message::placeholder {
+        color: var(--braun);
+        padding-left: 16px;
+        font-size: 16px;
+    }
+
+    .send_btn button {
+        width: 243px;
+        height: 37px;
+        font-size: 16px;
+       line-height: 20.8px; 
+       border-radius: 5px;
+    }
+}

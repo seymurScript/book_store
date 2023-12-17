@@ -1,10 +1,12 @@
+.contactMain{
+    padding-top: 140px;
+    background: var(--light);
+}
 .contact_section {
     display: flex;
     flex-direction: column;
     width: 85%;
     margin: 0 auto;
-    margin-top: 112px;
-    margin-bottom: 126px;
 }
 
 .contact_section h2 {
@@ -61,8 +63,7 @@
 }
 
 .send_btn {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .send_btn button {

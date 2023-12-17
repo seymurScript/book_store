@@ -1,8 +1,8 @@
+.homeMain{
+    background: var(--light);
+}
 .homeBanner {
-    /* width: 80%; */
-    margin: 0 auto;
-    margin-left: 8%;
-    margin-top: 146px;
+    padding-top: 140px;
 
 }
 
@@ -162,7 +162,6 @@
 .home_delivery {
     width: 70%;
     margin: 0 auto;
-    margin-bottom: 134px;
 }
 
 .home_delivery h3 {

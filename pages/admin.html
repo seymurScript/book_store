@@ -99,13 +99,13 @@
                 <p class="searchTitle">Search book</p>
                 <div class="search">
                     <div class="searchBar">
-                        <input class="searchInput" type="text">
+                        <input id="searchInput" class="searchInput" type="text">
                         <button class="searchBtn"><img class="searchIcon" src="../assets//icons/search.svg" alt=""></button>
                     </div>
                     <div class="suggBox">
                         <div class="suggItem">
                             <img src="../assets/icons/clock.svg" alt="">
-                            <p class="suggTitle">Dan Brown</p>
+                            <p class="suggTitle">Author , Book Name</p>
                         </div>
                     </div>
                 </div>
@@ -126,6 +126,14 @@
                     <div class="formSection">
                         <label for="description">Description</label>
                         <input type="text" id="description">
+                    </div>
+                    <div class="formSection">
+                        <label for="pub_year">Publication Year</label>
+                        <input type="number" id="pub_year">
+                    </div>
+                    <div class="checkSection">
+                        <input type="checkbox" id="isNew" name="isNew" value="yes">
+                        <label for="isNew">New</label>
                     </div>
                     <div class="formSection">
                         <label for="book_type">Book Type</label>
@@ -207,4 +215,6 @@
 
 </body>
 <script defer src="../js/responsive.js"></script>
+<script src="../js/admin.js">
+</script>
 </html>

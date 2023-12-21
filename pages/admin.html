@@ -104,8 +104,6 @@
                     </div>
                     <div class="suggBox">
                         <div class="suggItem">
-                            <img src="../assets/icons/clock.svg" alt="">
-                            <p class="suggTitle">Author , Book Name</p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +111,7 @@
                 <form class="bookForm">
                     <div class="formSection">
                         <label for="book_name">Book Name</label>
-                        <input type="text" id="book_name">
+                        <input required type="text" id="book_name">
                     </div>
                     <div class="formSection">
                         <label for="author_name">Author Name</label>
@@ -139,21 +137,25 @@
                         <label for="book_type">Book Type</label>
                         <input id="book_type" type="text">
                     </div>
+                    <div class="formSection">
+                        <label for="book_Id">Book ID</label>
+                        <input id="book_Id" type="text">
+                    </div>
                     <button id="bookFormBtn" class="addBtn">Add</button>
                 </form>
                 <p id="aboutSection" class="aboutFormTitle">About Store</p>
                 <form class="aboutForm">
                     <div class="formSection">
-                        <label for="book_title">Title</label>
-                        <input type="text" id="book_title">
+                        <label for="about_title">Title</label>
+                        <input required type="text" id="about_title">
                     </div>
                     <div class="formSection">
                         <label for="about_img_url">Book Image URL</label>
-                        <input type="text" id="about_img_url">
+                        <input required type="text" id="about_img_url">
                     </div>
                     <div class="formSection">
                         <label for="about_description">Description</label>
-                        <input type="text" id="about_description">
+                        <input required type="text" id="about_description">
                     </div>
                     <button id="aboutFormBtn" class="addBtn">Add About Info</button>
                 </form>
@@ -184,13 +186,13 @@
                         <th class="booksTh">Category</th>
                         <th class="booksTh">Author</th>
                     </tr>
-                    <tr class="booksTr">
+                    <!-- <tr class="booksTr">
                         <td class="booksId">1</td>
                         <td class="bookTitle"><img src="https://m.media-amazon.com/images/M/MV5BNmQ0ODBhMjUtNDRhOC00MGQzLTk5MTAtZDliODg5NmU5MjZhXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg" width="27px" height="36px" alt=""><p>Harry Poter</p></td>
                         <td class="booksDescription">Best Book</td>
                         <td class="booksCategory">Fantastic</td>
                         <td class="booksCategory">John Brown</td>
-                    </tr>
+                    </tr> -->
                 </table>
                 <p id="contactUsSection" class="contactTitle">Contact Us</p>
                 <table class="contactTable">
@@ -215,6 +217,161 @@
 
 </body>
 <script defer src="../js/responsive.js"></script>
+<script src="../js/config_DB.js"></script>
+<script type="module">
+    const searchInput= document.querySelector('#searchInput')
+    const suggBox=document.querySelector('.suggBox')
+    const searchBtn=document.querySelector('.searchBtn')
+    const bookName= document.getElementById('book_name')
+    const authorName= document.getElementById('author_name')
+    const bookImgUrl=document.getElementById('img_url')
+    const bookDesc=document.getElementById('description')
+    const bookType=document.getElementById('book_type')
+    const bookId=document.getElementById('book_Id')
+    const publicationYear=document.getElementById('pub_year')
+    const isNew=document.getElementById('isNew');
+    const bookFormBtn=document.getElementById('bookFormBtn')
+    const aboutTitle=document.getElementById('about_title')
+    const aboutImgUrl=document.getElementById('about_img_url')
+    const aboutDescription=document.getElementById('about_description')
+    const aboutFormBtn=document.getElementById('aboutFormBtn')
+
+    const booksTable= document.querySelector('.booksTable')
+
+
+    searchBtn.addEventListener('click',searchBooks)
+    aboutFormBtn.addEventListener('click',addAboutDataToDb)
+    function searchBooks() {
+        let inputValue = searchInput.value;
+        var apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${inputValue}`;
+        if(inputValue.trim()!==''){
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.items);
+                suggBox.innerHTML=''
+                data.items.forEach((item) => {
+                    const bookTitle = item.volumeInfo.title;
+                    const bookID=item.id
+                    const bookAuthorName = item.volumeInfo.authors;
+                    const bookDescription = item.volumeInfo.description;
+                    const bookYearSTR= item.volumeInfo.publishedDate;
+                    const bookYear=bookYearSTR?.slice(0,4);
+                    const bookImgLink= item.volumeInfo.imageLinks?.smallThumbnail;
+                    const bookCategory = item.volumeInfo.categories;
+                    const suggItem=document.createElement('div');
+                    
+                    suggItem.classList.add('suggItem')
+                    suggItem.style.cursor = "pointer";
+                    suggItem.innerHTML=
+                    `
+                    <img src="../assets/icons/clock.svg" alt="">
+                    <p class="suggTitle">${bookAuthorName?bookAuthorName:'unknown author'} , ${bookTitle}</p>
+                    `
+                    suggBox.appendChild(suggItem)
+                    suggItem.addEventListener('click',()=>{
+                        bookName.value=bookTitle?bookTitle:'';
+                        authorName.value=bookAuthorName?bookAuthorName:'';
+                        bookDesc.value=bookDescription?bookDescription:'';
+                        bookImgUrl.value=bookImgLink?bookImgLink:'';
+                        publicationYear.value=bookYear?bookYear:'';
+                        bookType.value=bookCategory?bookCategory:'';
+                        bookId.value=bookID?bookID:'';
+                        if (parseInt(publicationYear.value) >= 2020) {
+                            isNew.checked = true;
+                        } else {
+                            isNew.checked = false;
+                        }
+                    })
+
+            })
+                        
+            })
+            .catch(error => console.log('Error:', error));
+        }
+    }
+    
+    bookFormBtn.addEventListener('click',addBookDataToDb)
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"
+    import {getDatabase, ref, set,onValue, push} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js"
+    const app=initializeApp(firebaseConfig)
+    const db = getDatabase(app);
+    function addBookDataToDb(e){
+        if(bookName.value!==''){
+            e.preventDefault()
+            let bookData={
+                title: bookName.value,
+                author: authorName.value,
+                description: bookDesc.value,
+                bookImage: bookImgUrl.value,
+                publishYear:publicationYear.value,
+                category:bookType.value,
+                bookCode:bookId.value,
+                new: isNew.checked
+            
+            }
+            set(ref(db, 'books/' + bookData.bookCode), bookData);
+            bookName.value=''
+            authorName.value=''
+            bookDesc.value=''
+            bookImgUrl.value=''
+            publicationYear.value=''
+            bookType.value=''
+            bookId.value=''
+            isNew.checked=false
+        }
+    }
+
+    function addAboutDataToDb(e){
+        if(aboutTitle.value!=='' || aboutImgUrl.value!=='' || aboutDescription.value!==''){
+            let aboutData={
+                title:aboutTitle.value,
+                aboutImage:aboutImgUrl.value,
+                aboutDesc:aboutDescription.value
+            }
+            set(ref(db, 'about'), aboutData);
+            aboutTitle.value=''
+            aboutImgUrl.value=''
+            aboutDescription.value=''
+
+        }
+    }
+    // function readData(collection){
+    //     const pathRef=ref(db,collection)
+    //     onValue(pathRef,(snapshot)=>{
+    //         const data = snapshot.val()
+    //         const dataArr= Object.values(data)
+    //         console.log(dataArr);
+    //         return dataArr
+    //     })
+    // }
+    window.addEventListener('load', function() {
+        const booksRef=ref(db,'books')
+        onValue(booksRef,(snapshot)=>{
+            const data = snapshot.val()
+            const dataArr= Object.values(data)
+            console.log(dataArr);
+            dataArr?.forEach((tItem,index)=>{
+            const booksTr=document.createElement('tr')
+            booksTr.classList.add('booksTr');
+            booksTr.innerHTML=
+            `
+            <td class="booksId">${index+1}</td>
+            <td class="bookTitle"><img src='${tItem.bookImage}' width="27px" height="36px" alt=""><p>${tItem.title}</p></td>
+            <td class="booksDescription">${tItem.description}</td>
+            <td class="booksCategory">${tItem.category}</td>
+            <td class="booksCategory">${tItem.author}</td>
+            `
+            booksTable.appendChild(booksTr)
+        })
+        })
+        
+
+        
+    })
+    
+
+</script>
 <script src="../js/admin.js">
 </script>
 </html>

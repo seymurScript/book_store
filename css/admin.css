@@ -366,6 +366,8 @@ form{
 }
 th{
     background-color: #720418;
+    /* text-align: center; */
+
 }
 tr{
     text-align: center;
@@ -373,7 +375,7 @@ tr{
 td,th {
     border: 0;
     overflow: hidden;
-    max-width: 350px;
+    max-width: 300px;
     text-overflow: ellipsis;
     border-bottom: 1px solid #dddddd;
     color :#FFF;
@@ -399,13 +401,16 @@ tr:nth-child(even) {
     width: 90%;
 }
 .bookTitle{
+    max-width: 200px;
     display: flex;
-    justify-content: center;
+    padding-left: 20px;
     text-wrap: nowrap;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
 }
 .bookTitle p{
+    vertical-align: middle;
+    display: inline-block;
     margin-top: auto;
     margin-left: 10px;
     margin-bottom: auto;

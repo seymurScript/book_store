@@ -2,6 +2,16 @@
 @import url('./root.css');
 
 
+body::-webkit-scrollbar{
+  width: 6px;
+}
+body::-webkit-scrollbar-track{
+  /* background: #ccc; */
+}
+body::-webkit-scrollbar-thumb{
+  background: var(--orange);
+}
+
 /* modal */
 
 .modal_inner_div {
@@ -358,7 +368,7 @@
   text-decoration: none;
   color: #fff;
   font-family: var(--montserrat);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 400;
   line-height: 196.187%;
   cursor: pointer;
@@ -486,6 +496,11 @@
     justify-content: center;
     align-items: center;
     gap: 18px;
+  }
+  .footerIcons a i{
+    font-size: 3em;
+    gap: 0;
+    margin: 16px;
   }
   .footerIconsBox p {
     font-size: 20px;

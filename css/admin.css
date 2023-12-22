@@ -252,20 +252,28 @@ ul{
 .suggBox{
     border-radius: 35px;
     padding-top: 17px;
-    width: 33%;
+    padding-right: 20px;
+    width: 30%;
     margin-top: 6px;
     padding-bottom: 11px;
     background: #F1F0F0;
 }
 .suggItem{
     display: flex;
-    margin-bottom: 3px;
-    padding-left: 36px;
+    border-radius: 5px;
+    transition: background 0.5s ease;
+    margin-bottom: 10px;
+    margin-left: 36px;
     flex-direction: row;
+}
+.suggItem:hover{
+    background:#720418;
+    
 }
 .suggTitle{
     color: #BCBCBC;
     font-family: Preah Vihear;
+    border-bottom: solid 1px #333;
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 14px;
@@ -302,6 +310,15 @@ form{
     color:#030102;
     font-family: Roboto;
     margin-bottom: 10px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.checkSection label{
+    color:#030102;
+    font-family: Roboto;
+    margin-bottom: 20px;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -349,11 +366,16 @@ form{
 }
 th{
     background-color: #720418;
+    /* text-align: center; */
+
+}
+tr{
+    text-align: center;
 }
 td,th {
     border: 0;
     overflow: hidden;
-    max-width: 350px;
+    max-width: 300px;
     text-overflow: ellipsis;
     border-bottom: 1px solid #dddddd;
     color :#FFF;
@@ -379,11 +401,19 @@ tr:nth-child(even) {
     width: 90%;
 }
 .bookTitle{
+    max-width: 200px;
     display: flex;
-    gap: 5px;
+    padding-left: 20px;
     text-wrap: nowrap;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
+}
+.bookTitle p{
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: auto;
+    margin-left: 10px;
+    margin-bottom: auto;
 }
 .booksTitle{
     margin-top: 136px;

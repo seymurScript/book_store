@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Store/admin</title>
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
@@ -111,7 +111,7 @@
                 <form class="bookForm">
                     <div class="formSection">
                         <label for="book_name">Book Name</label>
-                        <input required type="text" id="book_name">
+                        <input type="text" id="book_name">
                     </div>
                     <div class="formSection">
                         <label for="author_name">Author Name</label>
@@ -147,15 +147,15 @@
                 <form class="aboutForm">
                     <div class="formSection">
                         <label for="about_title">Title</label>
-                        <input required type="text" id="about_title">
+                        <input type="text" id="about_title">
                     </div>
                     <div class="formSection">
                         <label for="about_img_url">Book Image URL</label>
-                        <input required type="text" id="about_img_url">
+                        <input type="text" id="about_img_url">
                     </div>
                     <div class="formSection">
                         <label for="about_description">Description</label>
-                        <input required type="text" id="about_description">
+                        <input type="text" id="about_description">
                     </div>
                     <button id="aboutFormBtn" class="addBtn">Add About Info</button>
                 </form>
@@ -165,16 +165,6 @@
                         <th class="joinTh">#</th>
                         <th class="joinTh">Full Name</th>
                         <th class="joinTh">Email Adress</th>
-                    </tr>
-                    <tr class="joinTr">
-                        <td class="joinId">1</td>
-                        <td class="joinName">Jhon Doe</td>
-                        <td class="joinMail">jhonDoe@gmail.com</td>
-                    </tr>
-                    <tr class="joinTr">
-                        <td class="joinId">1</td>
-                        <td class="joinName">Jhon Doe</td>
-                        <td class="joinMail">jhonDoe@gmail.com</td>
                     </tr>
                 </table>
                 <p id="booksSection" class="booksTitle">Books</p>
@@ -186,13 +176,6 @@
                         <th class="booksTh">Category</th>
                         <th class="booksTh">Author</th>
                     </tr>
-                    <!-- <tr class="booksTr">
-                        <td class="booksId">1</td>
-                        <td class="bookTitle"><img src="https://m.media-amazon.com/images/M/MV5BNmQ0ODBhMjUtNDRhOC00MGQzLTk5MTAtZDliODg5NmU5MjZhXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg" width="27px" height="36px" alt=""><p>Harry Poter</p></td>
-                        <td class="booksDescription">Best Book</td>
-                        <td class="booksCategory">Fantastic</td>
-                        <td class="booksCategory">John Brown</td>
-                    </tr> -->
                 </table>
                 <p id="contactUsSection" class="contactTitle">Contact Us</p>
                 <table class="contactTable">
@@ -203,13 +186,6 @@
                         <th class="contactTh">Email Address</th>
                         <th class="contactTh">Phone Number</th>
                     </tr>
-                    <tr class="contactTr">
-                        <td class="contactId">1</td>
-                        <td class="contactName">Qezenfer</td>
-                        <td class="contactAddress">Baku</td>
-                        <td class="contactMail">Qezenfer@gmail.com</td>
-                        <td class="contactPhone">(+994)-55-333-22-11</td>
-                    </tr>
                 </table>
             </div>
         </div>
@@ -217,6 +193,7 @@
 
 </body>
 <script defer src="../js/responsive.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="../js/config_DB.js"></script>
 <script type="module">
     const searchInput= document.querySelector('#searchInput')
@@ -237,7 +214,8 @@
     const aboutFormBtn=document.getElementById('aboutFormBtn')
 
     const booksTable= document.querySelector('.booksTable')
-
+    const joinTable= document.querySelector('.joinTable')
+    const contactTable= document.querySelector('.contactTable')
 
     searchBtn.addEventListener('click',searchBooks)
     aboutFormBtn.addEventListener('click',addAboutDataToDb)
@@ -311,6 +289,20 @@
             
             }
             set(ref(db, 'books/' + bookData.bookCode), bookData);
+            set(ref(db, 'category/'+ bookData.category), bookData.category);
+            Toastify({
+                text: "Added Successfully to DataBase",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            }).showToast();
             bookName.value=''
             authorName.value=''
             bookDesc.value=''
@@ -319,10 +311,11 @@
             bookType.value=''
             bookId.value=''
             isNew.checked=false
+            
         }
     }
 
-    function addAboutDataToDb(e){
+    function addAboutDataToDb(){
         if(aboutTitle.value!=='' || aboutImgUrl.value!=='' || aboutDescription.value!==''){
             let aboutData={
                 title:aboutTitle.value,
@@ -350,7 +343,6 @@
         onValue(booksRef,(snapshot)=>{
             const data = snapshot.val()
             const dataArr= Object.values(data)
-            console.log(dataArr);
             dataArr?.forEach((tItem,index)=>{
             const booksTr=document.createElement('tr')
             booksTr.classList.add('booksTr');
@@ -365,8 +357,41 @@
             booksTable.appendChild(booksTr)
         })
         })
-        
+        const joinRef=ref(db,'Join')
+        onValue(joinRef,(snapshot)=>{
+            const data = snapshot?.val()
+            const dataArr= Object.values(data)
+            dataArr?.forEach((tItem,index)=>{
+                const joinTr=document.createElement('tr')
+                joinTr.classList.add('joinTr');
+                joinTr.innerHTML=`
 
+                <td class="joinId">${index+1}</td>
+                <td class="joinName">${tItem.fullName}</td>
+                <td class="joinMail">${tItem.email}</td>
+            `
+            joinTable.appendChild(joinTr)
+            })
+            
+        })
+        const contactRef=ref(db,'contact')
+        onValue(contactRef,(snapshot)=>{
+            const data = snapshot?.val()
+            const dataArr= Object.values(data)
+            console.log(dataArr);
+            dataArr?.forEach((tItem,index)=>{
+                const contactTr=document.createElement('tr')
+                contactTr.classList.add('contactTr');
+                contactTr.innerHTML=`
+                    <td class="contactId">${index + 1}</td>
+                    <td class="contactName">${tItem.fullName}</td>
+                    <td class="contactAddress">${tItem.adress}</td>
+                    <td class="contactMail">${tItem.email}</td>
+                    <td class="contactPhone">${tItem.phone}</td>
+                `
+                contactTable.appendChild(contactTr)
+            })
+        })
         
     })
     

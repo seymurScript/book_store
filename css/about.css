@@ -1,10 +1,12 @@
-.aboutMain{
+.aboutMain {
     background: var(--light);
 
 }
+
 .container {
-    /* margin-left: 3%; */
-    /* width: 90% ; */
+    /* margin-left: 100px; */
+    margin-left: 8%;
+    width: 85%;
     padding-top: 140px;
 }
 
@@ -22,6 +24,7 @@
 
 .aboutStore {
     display: flex;
+    justify-content: space-between;
     /* justify-content: center; */
     /* align-items: center; */
     gap: 72px;
@@ -34,7 +37,7 @@
     font-weight: 900;
     line-height: 49px;
     letter-spacing: 0em;
-    text-align: center;
+    text-align: left;
     color: var(--braun);
 }
 
@@ -49,7 +52,10 @@
     color: var(--braun);
 }
 
-.image img {}
+.image img {
+    width: 570px;
+    /* height: 310px; */
+}
 
 @media screen and (max-width:1270px) {
 
@@ -75,7 +81,7 @@
         height: 161px;
     }
 
-    .about p{
+    .about p {
         text-align: center;
     }
 }

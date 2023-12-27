@@ -129,7 +129,7 @@
     <!------------------ End Header ----------------------->
     <!------------------ Start Main ----------------------->
     <main class="aboutMain">
-        <section class="container">
+        <section class="container" id="about_section">
             <h2>About Store</h2>
             <div class="aboutStore">
             
@@ -243,5 +243,40 @@
   ></script>
   <script src="../js/humburger.js"></script>
 </body>
+<script src="../js/config_DB.js"></script>
+<script type="module">
 
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"
+  import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js"
+  const app = initializeApp(firebaseConfig)
+  const db = getDatabase(app);
+
+
+
+  window.addEventListener("load",function() {
+   let about_section = document.getElementById("about_section");
+ 
+   const aboutRef = ref(db, 'about')
+   onValue(aboutRef, (snapshot) => {
+     const data = snapshot.val()
+     const about_data = Object.values(data)
+     console.log(about_data);
+
+     about_section.innerHTML=` <h2>${about_data[2]}</h2>
+            <div class="aboutStore">
+            
+            <div class="about">
+                <h3>${about_data[2]}</h3>
+                <p>${about_data[0]}</p></div>
+            <div class="image"><img src="${about_data[1]}" alt="book"></div>
+        </div>`
+    
+   
+
+   })
+
+  
+  })
+
+</script>
 </html>

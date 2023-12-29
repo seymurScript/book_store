@@ -1,7 +1,7 @@
 @import url(./font.css);
 body{
     margin: 0;
-    width: 1140px;
+    /* width: 100vh; */
     padding: 0;
     box-sizing: border-box;
     
@@ -134,13 +134,11 @@ body{
     }
 }
 #adminPanel{
-    width: 1440px;
+    width: 100%;
     display: flex;
-    height: 100vh;
+    height: fit-content;
 }
 .nav1{
-    height: 100%;
-    position: fixed;
     z-index: 1;
     width: fit-content;
     background-color: #720418;
@@ -149,14 +147,16 @@ body{
     display: none;
 }
 #navLogo{
-    margin-left: 35px;
+    margin-left: 15px;
+    scale: 0.8;
     margin-right: 37px;
-    margin-top: 93px;
+    margin-top: 50px;
 }
 ul{
+    margin-top: 8px;
     width: fit-content;
     list-style-type: none;
-    margin-left: -40px;
+    margin-left: -30px;
 }
 .navLink{
     display: flex;
@@ -176,8 +176,8 @@ ul{
     margin-left: 11px;
 }
 .main{
-    width: 100%;
-    margin-left: 358px;
+    width: 100vh;
+    flex: 1;
     position: relative;
     background-color:#FFFAF5;;
     height: fit-content;
@@ -186,13 +186,15 @@ ul{
 .adminProfile{
     display: flex;
     margin-top: 48px;
+    align-items: center;
     margin-right: 58px;
     gap: 6px;
-    justify-content: end;
+    justify-content:end;
 }
 .profileTitle{
     font-family: Roboto;
-    padding-top: 6px;
+    margin-bottom: 0px;
+    margin-top: 5px;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -215,6 +217,31 @@ ul{
     margin-bottom: 6px;
     font-weight: 600;
     line-height: 196.187%;
+}
+.category-modalDiv{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background: #0000008c;
+}
+.category-modal{
+    padding: 16px 30px 30px 30px;
+    flex-direction: column;
+    border-radius: 20px;
+    background: #FFF;
+    width: 49%;
+    margin-left: auto;
+    margin-top: 10%;
+    margin-right: auto;
+
+}
+.category-modal .formSection{
+    padding-top: 30px;
+}
+.type_selection_main{
+    display: none;
 }
 .search{
     display: flex;
@@ -250,6 +277,7 @@ ul{
     padding: 6px 24px;
 }
 .suggBox{
+    display: none;
     border-radius: 35px;
     padding-top: 17px;
     padding-right: 20px;
@@ -315,6 +343,53 @@ form{
     font-weight: 400;
     line-height: normal;
 }
+#book_type {
+    align-items: center;
+    min-width: 320px;
+    position: relative;
+  }
+#plus_btn{
+    width: 20px;
+    cursor: pointer;
+    margin-bottom: 1px;
+}
+  select {
+    appearance: none;
+    /*  safari  */
+    -webkit-appearance: none;
+    /*  other styles for aesthetics */
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  #book_type::before,
+  #book_type::after {
+    --size: 0.3rem;
+    content: "";
+    position: absolute;
+    right: 1rem;
+    pointer-events: none;
+  }
+  
+  #book_type::before {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid black;
+    top: 40%;
+  }
+  
+  #book_type::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid black;
+    top: 55%;
+  }
 .checkSection label{
     color:#030102;
     font-family: Roboto;
@@ -324,7 +399,7 @@ form{
     font-weight: 400;
     line-height: normal;
 }
-.formSection input{
+.formSection input , .formSection select{
     height: 40px;
     padding: 8px 12px;
     border-radius: 10px;
@@ -375,7 +450,7 @@ tr{
 td,th {
     border: 0;
     overflow: hidden;
-    max-width: 300px;
+    max-width: 200px;
     text-overflow: ellipsis;
     border-bottom: 1px solid #dddddd;
     color :#FFF;
@@ -398,7 +473,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 .booksTable{
-    width: 90%;
+    width: 70%;
 }
 .bookTitle{
     max-width: 200px;
@@ -434,7 +509,7 @@ tr:nth-child(even) {
     line-height: 196.187%;
 }
 .contactTable{
-    width: 90%;
+    width: 70%;
     margin-bottom: 10%;
 }
 #myNav{

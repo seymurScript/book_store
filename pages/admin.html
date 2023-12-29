@@ -19,7 +19,7 @@
         </div>
     </div> -->
     <div id="adminPanel">
-        <nav class="nav1">
+        <div class="nav1">
             <img id="navLogo" src="../assets/images/adminNavLogo.svg"/>
             <ul >
                 <li class="navLink">
@@ -47,7 +47,16 @@
                     <a href="#" class="navItem">Logout</a>
                 </li>
             </ul>
-        </nav>
+        </div>
+        <div class="category-modalDiv">
+            <div class="category-modal">
+                <div class="formSection">
+                    <label for="book_category">Add Category</label>
+                    <input type="text" id="book_category">
+                    <button id="addCategoryBtn" class="addBtn">Add Category</button>
+                </div>
+            </div>
+        </div>
         <div class="main">
             <nav class="nav2">
                 <img class="resLogo" src="../assets/icons/resLogoAdmin.svg" alt="">
@@ -134,12 +143,13 @@
                         <label for="isNew">New</label>
                     </div>
                     <div class="formSection">
-                        <label for="book_type">Book Type</label>
-                        <input id="book_type" type="text">
-                    </div>
-                    <div class="formSection">
-                        <label for="book_Id">Book ID</label>
-                        <input id="book_Id" type="text">
+                        <label for="type_selection">Book Type <img id="plus_btn" src="../assets/icons/plus_button.png" alt=""></label>
+                        <select id="type_selection">
+                            <!-- <option value="">none</option>
+                            <option value="">salam1</option>
+                            <option value="">salam2</option>
+                            <option value="">salam3</option> -->
+                        </select>
                     </div>
                     <button id="bookFormBtn" class="addBtn">Add</button>
                 </form>
@@ -161,31 +171,46 @@
                 </form>
                 <p id="joinUsSection" class="joinUsTitle">Join Us</p>
                 <table class="joinTable">
-                    <tr class="joinTr">
-                        <th class="joinTh">#</th>
-                        <th class="joinTh">Full Name</th>
-                        <th class="joinTh">Email Adress</th>
-                    </tr>
+                    <thead>
+                        <tr class="joinTr">
+                            <th class="joinTh">#</th>
+                            <th class="joinTh">Full Name</th>
+                            <th class="joinTh">Email Adress</th>
+                        </tr>
+                    </thead>
+                    <tbody class="joinTb">
+
+                    </tbody>
                 </table>
                 <p id="booksSection" class="booksTitle">Books</p>
                 <table class="booksTable">
-                    <tr class="booksTr">
-                        <th class="booksTh">#</th>
-                        <th class="booksTh">Title</th>
-                        <th class="booksTh">Description</th>
-                        <th class="booksTh">Category</th>
-                        <th class="booksTh">Author</th>
-                    </tr>
+                    <thead>
+                        <tr class="booksTr">
+                            <th class="booksTh">#</th>
+                            <th class="booksTh">Title</th>
+                            <th class="booksTh">Description</th>
+                            <th class="booksTh">Category</th>
+                            <th class="booksTh">Author</th>
+                        </tr>
+                    </thead>
+                    <tbody class="booksTb">
+
+                    </tbody>
                 </table>
                 <p id="contactUsSection" class="contactTitle">Contact Us</p>
                 <table class="contactTable">
-                    <tr class="contactTr">
-                        <th class="contactTh">#</th>
-                        <th class="contactTh">Full Name</th>
-                        <th class="contactTh">Address</th>
-                        <th class="contactTh">Email Address</th>
-                        <th class="contactTh">Phone Number</th>
-                    </tr>
+                    <thead>
+                        <tr class="contactTr">
+                            <th class="contactTh">#</th>
+                            <th class="contactTh">Full Name</th>
+                            <th class="contactTh">Address</th>
+                            <th class="contactTh">Email Address</th>
+                            <th class="contactTh">Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody class="contactTb">
+
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -203,22 +228,37 @@
     const authorName= document.getElementById('author_name')
     const bookImgUrl=document.getElementById('img_url')
     const bookDesc=document.getElementById('description')
-    const bookType=document.getElementById('book_type')
-    const bookId=document.getElementById('book_Id')
+    const typeSelection=document.getElementById('type_selection')
+    const bookType=document.getElementById('book_category')
     const publicationYear=document.getElementById('pub_year')
     const isNew=document.getElementById('isNew');
+    const categoryModalDiv=document.querySelector('.category-modalDiv')
+    const openModalBtn=document.getElementById('plus_btn')
+    const addCategoryBtn=document.getElementById('addCategoryBtn')
     const bookFormBtn=document.getElementById('bookFormBtn')
     const aboutTitle=document.getElementById('about_title')
     const aboutImgUrl=document.getElementById('about_img_url')
     const aboutDescription=document.getElementById('about_description')
     const aboutFormBtn=document.getElementById('aboutFormBtn')
 
-    const booksTable= document.querySelector('.booksTable')
-    const joinTable= document.querySelector('.joinTable')
-    const contactTable= document.querySelector('.contactTable')
+    const booksTb= document.querySelector('.booksTb')
+    const joinTb= document.querySelector('.joinTb')
+    const contactTb= document.querySelector('.contactTb')
 
     searchBtn.addEventListener('click',searchBooks)
     aboutFormBtn.addEventListener('click',addAboutDataToDb)
+    function selectOptionByCategory(categoryValue) {
+        for (var i = 0; i < typeSelection.options.length; i++) {
+            if (typeSelection.options[i].value == categoryValue) {
+                openModalBtn.style.display='none'
+                typeSelection.selectedIndex = i;
+                break;
+            }else{
+                console.log('calismir');
+                bookType.value= categoryValue?categoryValue:'unknown category'
+            }
+        }
+    }
     function searchBooks() {
         let inputValue = searchInput.value;
         var apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${inputValue}`;
@@ -227,6 +267,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data.items);
+                suggBox.style.display='block'
                 suggBox.innerHTML=''
                 data.items.forEach((item) => {
                     const bookTitle = item.volumeInfo.title;
@@ -244,22 +285,27 @@
                     suggItem.innerHTML=
                     `
                     <img src="../assets/icons/clock.svg" alt="">
-                    <p class="suggTitle">${bookAuthorName?bookAuthorName:'unknown author'} , ${bookTitle}</p>
+                    <p class="suggTitle"> ${bookTitle} , ${bookAuthorName?bookAuthorName:'unknown author'}</p>
                     `
                     suggBox.appendChild(suggItem)
                     suggItem.addEventListener('click',()=>{
+                        console.log(bookCategory);
+                        selectOptionByCategory(bookCategory)
+                        console.log(typeSelection.value);
                         bookName.value=bookTitle?bookTitle:'';
                         authorName.value=bookAuthorName?bookAuthorName:'';
                         bookDesc.value=bookDescription?bookDescription:'';
                         bookImgUrl.value=bookImgLink?bookImgLink:'';
                         publicationYear.value=bookYear?bookYear:'';
-                        bookType.value=bookCategory?bookCategory:'';
-                        bookId.value=bookID?bookID:'';
+                        localStorage.setItem('bookCode',bookID?bookID:'')
                         if (parseInt(publicationYear.value) >= 2020) {
                             isNew.checked = true;
                         } else {
                             isNew.checked = false;
                         }
+                        // suggBox.style.display='none'
+                        // suggBox.innerHTML=''
+                        // searchInput.value=''
                     })
 
             })
@@ -268,7 +314,21 @@
             .catch(error => console.log('Error:', error));
         }
     }
-    
+    categoryModalDiv.addEventListener('click',function(e){
+        if(e.target.className==='category-modalDiv'){
+            categoryModalDiv.style.display='none'
+        }
+    })
+    addCategoryBtn.addEventListener('click',function(){
+        if(bookType.value!==''){
+            // console.log(bookType.value);
+            categoryModalDiv.style.display='none'
+            typeSelection.innerHTML+= `<option selected value="">${bookType.value}</option>`
+        }
+    })
+    openModalBtn.addEventListener('click',function(){
+        categoryModalDiv.style.display='block'
+    })
     bookFormBtn.addEventListener('click',addBookDataToDb)
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"
     import {getDatabase, ref, set,onValue, push} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js"
@@ -277,16 +337,18 @@
     function addBookDataToDb(e){
         if(bookName.value!==''){
             e.preventDefault()
+            let selectedOptions= typeSelection.options[typeSelection.selectedIndex]
+            // console.log(selectedOptions.innerText);
             let bookData={
                 title: bookName.value,
                 author: authorName.value,
                 description: bookDesc.value,
                 bookImage: bookImgUrl.value,
                 publishYear:publicationYear.value,
-                category:bookType.value,
-                bookCode:bookId.value,
+                category:selectedOptions.innerText,
+                bookCode:localStorage.getItem('bookCode'),
                 new: isNew.checked
-            
+                
             }
             set(ref(db, 'books/' + bookData.bookCode), bookData);
             set(ref(db, 'category/'+ bookData.category), bookData.category);
@@ -303,18 +365,19 @@
                     background: "linear-gradient(to right, #00b09b, #96c93d)",
             },
             }).showToast();
+            openModalBtn.style.display='block'
+            localStorage.removeItem('bookCode');
             bookName.value=''
             authorName.value=''
             bookDesc.value=''
             bookImgUrl.value=''
             publicationYear.value=''
             bookType.value=''
-            bookId.value=''
             isNew.checked=false
             
         }
     }
-
+    
     function addAboutDataToDb(){
         if(aboutTitle.value!=='' || aboutImgUrl.value!=='' || aboutDescription.value!==''){
             let aboutData={
@@ -343,6 +406,7 @@
         onValue(booksRef,(snapshot)=>{
             const data = snapshot.val()
             const dataArr= Object.values(data)
+            booksTb.innerHTML=''
             dataArr?.forEach((tItem,index)=>{
             const booksTr=document.createElement('tr')
             booksTr.classList.add('booksTr');
@@ -354,23 +418,23 @@
             <td class="booksCategory">${tItem.category}</td>
             <td class="booksCategory">${tItem.author}</td>
             `
-            booksTable.appendChild(booksTr)
+            booksTb.appendChild(booksTr)
         })
         })
         const joinRef=ref(db,'Join')
         onValue(joinRef,(snapshot)=>{
             const data = snapshot?.val()
             const dataArr= Object.values(data)
+            joinTb.innerHTML=''
             dataArr?.forEach((tItem,index)=>{
                 const joinTr=document.createElement('tr')
                 joinTr.classList.add('joinTr');
                 joinTr.innerHTML=`
-
                 <td class="joinId">${index+1}</td>
                 <td class="joinName">${tItem.fullName}</td>
                 <td class="joinMail">${tItem.email}</td>
             `
-            joinTable.appendChild(joinTr)
+            joinTb.appendChild(joinTr)
             })
             
         })
@@ -378,7 +442,8 @@
         onValue(contactRef,(snapshot)=>{
             const data = snapshot?.val()
             const dataArr= Object.values(data)
-            console.log(dataArr);
+            // console.log(dataArr);
+            contactTb.innerHTML=''
             dataArr?.forEach((tItem,index)=>{
                 const contactTr=document.createElement('tr')
                 contactTr.classList.add('contactTr');
@@ -389,8 +454,21 @@
                     <td class="contactMail">${tItem.email}</td>
                     <td class="contactPhone">${tItem.phone}</td>
                 `
-                contactTable.appendChild(contactTr)
+                contactTb.appendChild(contactTr)
             })
+        })
+
+        const catalogRef=ref(db,'category')
+        onValue(catalogRef,(snapshot)=>{
+            const data = snapshot.val()
+            const dataArr= Object.values(data)
+            // console.log(dataArr);
+            typeSelection.innerHTML=''
+            typeSelection.innerHTML = `<option value="none">none</option>`
+            dataArr?.forEach((tItem)=>{
+              typeSelection.innerHTML+=`<option value="${tItem}">${tItem}</option>`
+            })
+            
         })
         
     })

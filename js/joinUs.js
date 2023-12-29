@@ -1,13 +1,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+
 import {
   getDatabase,
   ref,
-  set,
-  onValue,
-  push,
+  push, 
 } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
-const joinApp = initializeApp(firebaseConfig);
-const joinDB = getDatabase(joinApp);
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
 const joinBtn = document.getElementById("join");
 
@@ -27,14 +26,14 @@ joinBtn?.addEventListener("click", function (e) {
     fullName: joinUsFullname,
     email: joinUsEmail
   };
-  push(ref(joinDB, 'Join'), joinData);
+  push(ref(db, 'Join'), joinData);
   document.getElementById("joinUsFullname").value = "";
   document.getElementById("joinUsEmail").value = "";
   alert("successful")
-  console.log(joinData);
   }
 });
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+
 }

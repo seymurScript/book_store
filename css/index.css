@@ -1,7 +1,9 @@
-.homeMain{
+.homeMain {
     background: var(--light);
 }
+
 .homeBanner {
+    width: 85%;
     padding-top: 140px;
 
 }
@@ -22,18 +24,18 @@
     font-size: 36px;
     line-height: 70px;
     font-family: var(--montserrat);
-    color: var(--black);
-    text-align: center;
+    color: var(--braun);
+    text-align: left;
 }
 
 .leftBanner p {
     max-width: 370px;
+    font-family: var(--montserrat);
     font-weight: 900;
     line-height: 26px;
     font-weight: 400;
     font-size: 13px;
-    font-family: var(--montserrat);
-    color: var(--black);
+    color: var(--braun);
 
 }
 
@@ -42,19 +44,25 @@
     height: 50px;
     background-color: var(--orange);
     color: var(--white);
-    border: none;
+    border: none;    
+    font-family: var(--montserrat);
     font-weight: 900;
     line-height: 29px;
     margin-top: 16px;
     text-align: left;
     padding-left: 16px;
-    font-family: var(--montserrat);
+    font-size: 15px;
+    letter-spacing: 0em;
+
 }
 
 /* .rightBanner img {} */
 
-.catalog_parent{
+.catalog_parent {
     margin-top: 132px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -70,6 +78,7 @@
 }
 
 .catalog {
+    max-width: 800px;
     display: flex;
     flex-wrap: wrap;
     gap: 36px;
@@ -88,7 +97,7 @@
     background-color: var(--white);
     border: none;
     /* padding-bottom: 36px; */
-   
+
 }
 
 .ctlg_box a {
@@ -98,7 +107,7 @@
     line-height: 27px;
     letter-spacing: 0em;
     text-align: center;
-
+    color: var(--braun);
 }
 
 
@@ -223,19 +232,25 @@
 }
 
 @media screen and (max-width:825px) {
+
     .rightBanner img {
         width: 450px;
         height: 300px;
     }
 
-   
-} 
+
+}
 
 @media screen and (max-width:600px) {
-    .leftBanner h2 {
+    .homeBanner {
+        width: 100%;
+        /* padding-left: 15px ;
+        padding-right: 15px; */
+    }
+    .leftBanner h2 { width: 100%;
         font-size: 28px;
         font-weight: 900;
-        line-height: 55px;
+        line-height: 54.93px;
         letter-spacing: 0em;
 
     }
@@ -254,14 +269,14 @@
        min-width: 224px;
     } */
 
-     .aboutstore_section {
+    .aboutstore_section {
         /* display: flex; */
         /* flex-wrap: wrap;
         align-items: center;
         flex-direction: column;
         /* width: 67.36%; */
         /* margin: 0 auto; */
-    } 
+    }
 
     /* .about_box {
         display: block;

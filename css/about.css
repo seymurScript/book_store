@@ -37,7 +37,7 @@
     font-weight: 900;
     line-height: 49px;
     letter-spacing: 0em;
-    text-align: left;
+    text-align: center;
     color: var(--braun);
 }
 
@@ -68,10 +68,14 @@
         flex-direction: column-reverse;
         text-align: center;
         align-items: center;
+        
     }
 
     .about h3 {
         display: block;
+    }
+    .about p {
+        text-align: center;
     }
 }
 

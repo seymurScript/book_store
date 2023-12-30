@@ -1,6 +1,7 @@
 const catalogStage=document.querySelector('.catalogMain');
 const readPageStage= document.querySelector('.readPage')
 const backBtn=document.querySelector('.backBtn')
+const titleSlider=document.querySelector('.titleSlider')
 const firstSection=document.querySelector('.first-section')
 const commits=document.querySelector('.commits')
 const commitInput=document.querySelector('.commit-input')
@@ -13,7 +14,7 @@ const catalogList=document.querySelector('.catalogList')
 
 
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"
-import {getDatabase, ref, set,onValue, push} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js"
+import {getDatabase, ref,onValue} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js"
 const app=initializeApp(firebaseConfig)
 const db = getDatabase(app);
 
@@ -29,9 +30,10 @@ window.addEventListener('load', function() {
         const dataArr= Object.values(data)
         catalogList.innerHTML=''
         dataArr?.forEach((item)=>{
-            catalogList.innerHTML +=`<a class="catalogItem" href="#">${item}</a>`
-
-        })
+            let catalogItem=this.document.createElement('a')
+            catalogItem.classList.add('catalogItem')
+            catalogItem.innerText=`${item}`
+            catalogList.appendChild(catalogItem)
     })
     const booksRef=ref(db,'books')
     onValue(booksRef,(snapshot)=>{
@@ -44,7 +46,7 @@ window.addEventListener('load', function() {
             bookCard.innerHTML +=
             `
                 <div style="display: ${item.new?'block':'none'}" class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src=${item.bookImage} alt="">
+                <img class="bookImg" src=${item.bookImage?item.bookImage:'../assets/images/defaultBook.jpeg'} alt="">
                 <p class="bookName">${item.title}</p>
                 <p class="bookAuthor">${item.author?item.author:'unknown'}</p>
             `
@@ -140,7 +142,7 @@ window.addEventListener('load', function() {
             bookCard.innerHTML +=
             `
                 <div style="display: ${item.new?'block':'none'}" class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src=${item.bookImage} alt="">
+                <img class="bookImg" src=${item.bookImage?item.bookImage:'../assets/images/defaultBook.jpeg'} alt="">
                 <p class="bookName">${item.title}</p>
                 <p class="bookAuthor">${item.author?item.author:'unknown'}</p>
             `
@@ -236,7 +238,7 @@ window.addEventListener('load', function() {
             bookCard.innerHTML +=
             `
                 <div style="display: ${item.new?'block':'none'}" class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src=${item.bookImage} alt="">
+                <img class="bookImg" src=${item.bookImage?item.bookImage:'../assets/images/defaultBook.jpeg'} alt="">
                 <p class="bookName">${item.title}</p>
                 <p class="bookAuthor">${item.author?item.author:'unknown'}</p>
             `
@@ -329,4 +331,4 @@ window.addEventListener('load', function() {
     })
 
 })
-
+})

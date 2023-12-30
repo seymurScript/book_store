@@ -4,6 +4,9 @@ background-color: #FFFAF5;
 main{
     padding-top: 173px;
 }
+.catalogMain{
+    /* display: none; */
+}
 .titlesSlider{
     display: flex;
     align-items: center;
@@ -19,19 +22,30 @@ main{
 }
 .catalogList{
     margin-left: 10%;
+    max-width: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-overflow: ellipsis;
+    overflow-x: clip;
 }
 .catalogItem{
     margin-right: 40px;
     font-family: Montserrat;
     font-size: 13px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
     font-style: normal;
     font-weight: 400;
     line-height: 196.187%;
 }
+.activeItem{
+    color: #E16A00;
+}
 .bookCard{
     background: #FFF;
     position: relative;
-    width: 185px;
+    width:fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,6 +63,8 @@ main{
     font-family: Montserrat;
     font-size: 14px;
     padding: 0px;
+    max-width: 140px;
+    overflow: hidden;
     font-style: normal;
     font-weight: 700;
     white-space: nowrap;
@@ -60,6 +76,8 @@ main{
     color: var(--, #241400);
     font-family: Montserrat;
     font-size: 12px;
+    max-width: 140px;
+    overflow: hidden;
     white-space: nowrap;
     padding: 0px;
     overflow: hidden;
@@ -171,7 +189,7 @@ main{
 }
 .first-section{
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
 
 }
 .backBtn{
@@ -197,6 +215,10 @@ main{
     font-style: normal;
     font-weight: 700;
     line-height: 196.187%; 
+}
+.bookImage{
+    margin-top: 100px;
+    width: 380px;
 }
 .author-name{
     font-family: Montserrat;

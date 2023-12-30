@@ -250,12 +250,12 @@
     function selectOptionByCategory(categoryValue) {
         for (var i = 0; i < typeSelection.options.length; i++) {
             if (typeSelection.options[i].value == categoryValue) {
-                openModalBtn.style.display='none'
+                openModalBtn.classList.add='dNone'
                 typeSelection.selectedIndex = i;
                 break;
             }else{
                 console.log('calismir');
-                bookType.value= categoryValue?categoryValue:'unknown category'
+                bookType.value= categoryValue?categoryValue:'unknown'
             }
         }
     }
@@ -289,7 +289,13 @@
                     `
                     suggBox.appendChild(suggItem)
                     suggItem.addEventListener('click',()=>{
-                        console.log(bookCategory);
+                        for (var i = 0; i < typeSelection.options.length; i++) {
+                            if (typeSelection.options[i].value === 'none') {
+                                typeSelection.selectedIndex = i;
+                                break;
+                            }
+                        }
+                        // console.log(bookCategory);
                         selectOptionByCategory(bookCategory)
                         console.log(typeSelection.value);
                         bookName.value=bookTitle?bookTitle:'';
@@ -365,8 +371,14 @@
                     background: "linear-gradient(to right, #00b09b, #96c93d)",
             },
             }).showToast();
-            openModalBtn.style.display='block'
+            openModalBtn.classList.remove='dNone'
             localStorage.removeItem('bookCode');
+            for (var i = 0; i < typeSelection.options.length; i++) {
+                if (typeSelection.options[i].value === 'none') {
+                    typeSelection.selectedIndex = i;
+                    break;
+                }
+            }
             bookName.value=''
             authorName.value=''
             bookDesc.value=''

@@ -62,7 +62,7 @@ window.addEventListener('load', function() {
                 catalogStage.style.display='none'
                 readPageStage.style.display='block'
                 firstSection.innerHTML=`
-                <div>
+                <div class="text-center">
                     <div class="book-year">${item.publishYear}</div>
                     <p class="book-title">${item.title}</p>
                     <p class="author-name">${item.author?item.author:'unknown'}</p>

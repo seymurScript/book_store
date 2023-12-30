@@ -1,23 +1,24 @@
 .aboutMain {
     background: var(--light);
+    padding-top: 140px;
 
 }
 
 .container {
     /* margin-left: 100px; */
-    margin-left: 8%;
-    width: 85%;
-    padding-top: 140px;
+    /* margin-left: 8%; */
+    /* width: 85%; */
+    padding: 0 34px;
 }
 
 .container h2 {
-    display: block;
+    /* display: block; */
     font-family: var(--montserrat);
     font-size: 36px;
     font-weight: 900;
-    line-height: 71px;
-    letter-spacing: 0em;
-    text-align: left;
+    /* line-height: 71px; */
+    /* letter-spacing: 0em; */
+    /* text-align: left; */
     color: var(--braun);
     margin-bottom: 11px;
 }
@@ -27,7 +28,7 @@
     justify-content: space-between;
     /* justify-content: center; */
     /* align-items: center; */
-    gap: 72px;
+    /* gap: 72px; */
 }
 
 .about h3 {
@@ -51,10 +52,13 @@
     text-align: left;
     color: var(--braun);
 }
-
+.image{
+    width: 30%;
+}
 .image img {
-    width: 570px;
+    /* width: 570px; */
     /* height: 310px; */
+    width: 100%;
 }
 
 @media screen and (max-width:1270px) {

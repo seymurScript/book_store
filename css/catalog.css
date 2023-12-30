@@ -225,7 +225,8 @@ main{
     font-size: 35px;
     font-style: normal;
     font-weight: 700;
-    line-height: 196.187%; 
+    line-height: 1.5; 
+    width: 90%;
 }
 .bookImage{
     margin-top: 100px;
@@ -239,14 +240,27 @@ main{
     line-height: 196.187%;
 }
 .about-book{
+    height: 400px;
+    width: 90%;
+    overflow-y: auto;
+    padding-right: 10px;
     font-family: Montserrat;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 196.187%;
-    padding-right: 25%;
+    /* padding-right: 25%; */
     margin-bottom: 120px;
 }
+.about-book::-webkit-scrollbar{
+    width: 4px;
+  }
+  .about-book::-webkit-scrollbar-track{
+    background: #ccc;
+  }
+  .about-book::-webkit-scrollbar-thumb{
+    background: var(--orange);
+  }
 .send-commit{
     display: flex;
     align-items: center;

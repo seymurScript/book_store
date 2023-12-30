@@ -64,16 +64,20 @@
   background: white;
   margin: 0 100px;
 }
+.carousel-inner .carousel-item {
+  /* padding: 0 100px; */
 
+}
 .carouselResBtn{
   display: none !important;
 }
 .carouselBox{
-  height: 400px;
+  /* min-height: 300px; */
+  /* max-height: 500px;  */
 }
 
 .carouselBox img{
-  width: 30%;
+  /* width: 30%; */
 }
 .carousel #leftIcon{
   margin-right: 200px;

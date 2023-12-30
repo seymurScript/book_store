@@ -316,7 +316,7 @@ main{
     font-weight: 400;
     line-height: 24px;
 }
-@media only screen and (max-width:320px) {
+@media only screen and (max-width:769px) {
     .first-section{
         display: flex;
         flex-direction: column-reverse;
@@ -324,7 +324,7 @@ main{
     
     }
     .bookImage{
-        width: 270px;
+        width: 50%;
     }
     .backBtn{
         margin-bottom: 67px;
@@ -338,6 +338,7 @@ main{
         font-size: 25px;
         font-style: normal;
         font-weight: 900;
+        width: 100%;
     }
     .author-name{
         text-align: center;
@@ -347,6 +348,7 @@ main{
     }
     .about-book{
         text-align: center;
+        width: 100%;
     }
     .commit-time{
         text-wrap: nowrap;

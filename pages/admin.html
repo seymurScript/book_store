@@ -264,7 +264,7 @@
     function selectOptionByCategory(categoryValue) {
         for (var i = 0; i < typeSelection.options.length; i++) {
             if (typeSelection.options[i].value == categoryValue) {
-                openModalBtn.classList.add='dNone'
+                openModalBtn.classList.add('dNone')
                 typeSelection.selectedIndex = i;
                 break;
             }else{
@@ -389,7 +389,7 @@
                     background: "linear-gradient(to right, #00b09b, #96c93d)",
             },
             }).showToast();
-            openModalBtn.classList.remove='dNone'
+            openModalBtn.classList.remove('dNone')
             localStorage.removeItem('bookCode');
             for (var i = 0; i < typeSelection.options.length; i++) {
                 if (typeSelection.options[i].value === 'none') {

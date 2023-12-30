@@ -1,6 +1,7 @@
 .aboutMain {
     background: var(--light);
     padding-top: 140px;
+    min-height: 61vh;
 
 }
 
@@ -63,9 +64,9 @@
 
 @media screen and (max-width:1270px) {
 
-    .container h2 {
+    /* .container h2 {
         display: none;
-    }
+    } */
 
     .aboutStore {
         display: flex;
@@ -84,6 +85,10 @@
 }
 
 @media screen and (max-width:600px) {
+    .image{
+        width: 100%;
+        padding-bottom: 50px;
+    }
     .image img {
         width: 296px;
         height: 161px;

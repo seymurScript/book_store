@@ -129,10 +129,10 @@
         <div class="titlesSlider">
           <p class="titleSlider">All Books</p>
           <div class="catalogList">
-            <a class="catalogItem" href="#">Fantastic</a>
+            <!-- <a class="catalogItem" href="#">Fantastic</a>
             <a class="catalogItem" href="#">Self-Development</a>
             <a class="catalogItem" href="#">Baby</a>
-            <a class="catalogItem" href="#">Classic</a>
+            <a class="catalogItem" href="#">Classic</a> -->
           </div>
         </div>
         <div>
@@ -145,49 +145,7 @@
         </div>
         <div class="slider-content">
           <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
+            <div id="allBooks" class="swiper-wrapper">
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -196,49 +154,7 @@
         <p class="centerTitle">Besteller</p>
         <div class="slider-content">
           <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
-              <div class="bookCard swiper-slide">
-                <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
-                <img class="bookImg" src="../assets/images/book_2.svg" alt="">
-                <p class="bookName">Book Name</p>
-                <p class="bookAuthor">Author</p>
-                <button class="readBtn"><p>READ MORE</p></button>
-              </div>
+            <div id="besteller" class="swiper-wrapper">
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -247,7 +163,7 @@
         <p class="centerTitle">New releases</p>
         <div class="slider-content">
           <div class="swiper-container">
-            <div class="swiper-wrapper">
+            <div id="newRealise" class="swiper-wrapper">
               <div class="bookCard swiper-slide">
                 <div class="new"><img src="../assets/icons/new.svg" alt=""></div>
                 <img class="bookImg" src="../assets/images/book_2.svg" alt="">
@@ -315,12 +231,14 @@
             <input class="commit-input" placeholder="your anonim comment..." type="text">
             <button class="sendBtn"><img class="sendIcon" src="../assets/icons/send.svg" alt=""></button>
           </div>
-          <div class="commit">
-            <div class="name-time">
-              <p class="commit-name">anonim</p>
-              <p class="commit-time">18:32 today</p>
+          <div class="commits">
+            <div class="commit">
+              <div class="name-time">
+                <p class="commit-name">anonim</p>
+                <p class="commit-time">18:32 today</p>
+              </div>
+              <p class="commit-content">Woah, your project looks awesome! How long have you been coding for? I’m still new, but think I want to dive into </p>
             </div>
-            <p class="commit-content">Woah, your project looks awesome! How long have you been coding for? I’m still new, but think I want to dive into </p>
           </div>
         </div>
       </div>
@@ -407,8 +325,8 @@
  
      <!-- Join Us Script end -->
      
-    <script type="module" src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script>
-    <script type="module" src="../js/swiper.js"></script>
+    <script defer type="module" src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script>
+    <script defer type="module" src="../js/swiper.js"></script>
     <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

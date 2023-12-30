@@ -518,7 +518,7 @@ tr:nth-child(even) {
 #myNav{
     display: none;
 }
-@media only screen and (max-width:320px){
+@media only screen and (max-width:299px){
     .nav1{
         display: none;
     }

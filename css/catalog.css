@@ -1,16 +1,19 @@
-body{
-background-color: #FFFAF5;
+body {
+    background-color: #FFFAF5;
 }
-main{
+
+main {
     padding-top: 173px;
 }
-.titlesSlider{
+
+.titlesSlider {
     display: flex;
     align-items: center;
     padding-left: 10%;
     margin-bottom: 50px;
 }
-.titleSlider{
+
+.titleSlider {
     font-family: Montserrat;
     font-size: 25px;
     cursor: pointer;
@@ -18,25 +21,30 @@ main{
     font-weight: 900;
     line-height: 196.187%;
 }
-.catalogList{
+
+.catalogList {
     margin-left: 10%;
     max-width: 500px;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     text-overflow: ellipsis;
-    overflow-x:auto ;
+    overflow-x: auto;
 }
-.catalogList::-webkit-scrollbar{
+
+.catalogList::-webkit-scrollbar {
     height: 4px;
-  }
-  .catalogList::-webkit-scrollbar-track{
+}
+
+.catalogList::-webkit-scrollbar-track {
     background: #ccc;
-  }
-  .catalogList::-webkit-scrollbar-thumb{
+}
+
+.catalogList::-webkit-scrollbar-thumb {
     background: var(--orange);
-  }
-.catalogItem{
+}
+
+.catalogItem {
     margin-right: 40px;
     cursor: pointer;
     font-family: Montserrat;
@@ -47,29 +55,34 @@ main{
     font-weight: 400;
     line-height: 196.187%;
 }
-.catalogItem:hover{
+
+.catalogItem:hover {
     color: #E16A00;
 }
-.activeItem{
+
+.activeItem {
     color: #E16A00;
 }
-.bookCard{
+
+.bookCard {
     background: #FFF;
     position: relative;
-    width:fit-content;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
 }
-.bookImg{
+
+.bookImg {
     margin-top: 24px;
     width: 134px;
     margin-bottom: 30px;
     height: 180px;
 }
-.bookName{
+
+.bookName {
     color: var(--, #241400);
     font-family: Montserrat;
     font-size: 14px;
@@ -83,7 +96,8 @@ main{
     text-overflow: ellipsis;
     margin-bottom: 10px;
 }
-.bookAuthor{
+
+.bookAuthor {
     color: var(--, #241400);
     font-family: Montserrat;
     font-size: 12px;
@@ -97,7 +111,8 @@ main{
     margin-bottom: 16px;
     font-weight: 400;
 }
-.readBtn{
+
+.readBtn {
     border-radius: 3px;
     background: var(--2, #E16A00);
     box-shadow: 0px 3px 8px 0px rgba(225, 106, 0, 0.19);
@@ -106,7 +121,8 @@ main{
     border: 1px solid #E16A00;
     margin-bottom: 17px;
 }
-.readBtn p{
+
+.readBtn p {
     font-family: Montserrat;
     font-size: 12px;
     font-style: normal;
@@ -115,10 +131,12 @@ main{
     padding: 0px;
     text-transform: uppercase;
 }
-.readBtn:hover{
+
+.readBtn:hover {
     background-color: #ff871e;
 }
-.swiper-container{
+
+.swiper-container {
     margin-left: 10%;
     position: relative;
     justify-content: center;
@@ -126,26 +144,31 @@ main{
     margin-right: 10%;
     overflow: hidden;
 }
-.swiper-wrapper{
+
+.swiper-wrapper {
     padding-right: 5%;
     overflow: hidden;
     width: min-content;
 }
-.slider-content{
+
+.slider-content {
     align-items: center;
 }
-.swiper-button-prev{
+
+.swiper-button-prev {
 
     align-items: center;
 }
-.new{
+
+.new {
     position: absolute;
     top: -4px;
     /* display: none; */
     margin: 0;
     right: -8px;
 }
-.centerTitle{
+
+.centerTitle {
     margin-top: 128px;
     text-align: center;
     font-family: Montserrat;
@@ -154,34 +177,40 @@ main{
     font-weight: 900;
     margin-bottom: 50px;
 }
-.footerIconsBox{
+
+.footerIconsBox {
     padding-top: 200px;
 }
+
 @media only screen and (max-width:320px) {
-    .titlesSlider{
+    .titlesSlider {
         display: block;
         padding: 0;
         margin-bottom: 0;
     }
-    .titleSlider{
+
+    .titleSlider {
         font-family: Montserrat;
         font-size: 23px;
         margin-left: 16px;
         font-style: normal;
         font-weight: 900;
     }
-    .catalogList{
+
+    .catalogList {
         margin-left: 12px;
         margin-bottom: 23px;
     }
-    .catalogItem{
+
+    .catalogItem {
         font-family: Montserrat;
         font-size: 11px;
         font-style: normal;
         margin-right: 13px;
         font-weight: 400;
     }
-    .centerTitle{
+
+    .centerTitle {
         margin-top: 173px;
         margin-bottom: 31px;
         font-size: 23px;
@@ -189,25 +218,30 @@ main{
         font-weight: 900;
         line-height: 196.187%;
     }
-    .footerIconsBox{
+
+    .footerIconsBox {
         padding-top: 300px;
     }
 }
-.readPage{
+
+.readPage {
     display: none;
     margin-left: 10%;
     padding-right: 10%;
 }
-.first-section{
+
+.first-section {
     display: flex;
     justify-content: space-between;
 
 }
-.backBtn{
+
+.backBtn {
     cursor: pointer;
-    
+
 }
-.book-year{
+
+.book-year {
     margin-top: 80px;
     padding: 7px 20px;
     margin-left: 10px;
@@ -220,26 +254,30 @@ main{
     font-style: normal;
     font-weight: 900;
 }
-.book-title{
+
+.book-title {
     font-family: Montserrat;
     font-size: 35px;
     font-style: normal;
     font-weight: 700;
-    line-height: 1.5; 
+    line-height: 1.5;
     width: 90%;
 }
-.bookImage{
+
+.bookImage {
     margin-top: 100px;
     width: 380px;
 }
-.author-name{
+
+.author-name {
     font-family: Montserrat;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
     line-height: 196.187%;
 }
-.about-book{
+
+.about-book {
     height: 400px;
     width: 90%;
     overflow-y: auto;
@@ -252,20 +290,25 @@ main{
     /* padding-right: 25%; */
     margin-bottom: 120px;
 }
-.about-book::-webkit-scrollbar{
+
+.about-book::-webkit-scrollbar {
     width: 4px;
-  }
-  .about-book::-webkit-scrollbar-track{
+}
+
+.about-book::-webkit-scrollbar-track {
     background: #ccc;
-  }
-  .about-book::-webkit-scrollbar-thumb{
+}
+
+.about-book::-webkit-scrollbar-thumb {
     background: var(--orange);
-  }
-.send-commit{
+}
+
+.send-commit {
     display: flex;
     align-items: center;
 }
-.commit-input{
+
+.commit-input {
     border-radius: 5px;
     height: 60px;
     padding-left: 38px;
@@ -273,12 +316,14 @@ main{
     background: rgba(255, 255, 255, 0.80);
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
 }
-.sendBtn{
+
+.sendBtn {
     border-radius: 5px;
     background: #E16A00;
     padding: 12px;
 }
-.commit{
+
+.commit {
     border-radius: 5px;
     width: 50%;
     margin-top: 43px;
@@ -290,25 +335,29 @@ main{
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.name-time{
+
+.name-time {
     display: flex;
     gap: 20px;
     margin-bottom: 18px;
 }
-.commit-name{
+
+.commit-name {
     font-family: Rubik;
     font-size: 16px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
 }
-.commit-time{
+
+.commit-time {
     font-family: Rubik;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
 }
-.commit-content{
+
+.commit-content {
     font-family: Rubik;
     font-size: 16px;
     font-style: normal;
@@ -316,23 +365,28 @@ main{
     font-weight: 400;
     line-height: 24px;
 }
+
 @media only screen and (max-width:769px) {
-    .first-section{
+    .first-section {
         display: flex;
         flex-direction: column-reverse;
         justify-content: start;
-    
+
     }
-    .bookImage{
+
+    .bookImage {
         width: 50%;
     }
-    .backBtn{
+
+    .backBtn {
         margin-bottom: 67px;
     }
-    .book-year{
+
+    .book-year {
         margin-top: 50px;
     }
-    .book-title{
+
+    .book-title {
         text-align: center;
         font-family: Montserrat;
         font-size: 25px;
@@ -340,20 +394,34 @@ main{
         font-weight: 900;
         width: 100%;
     }
-    .author-name{
+
+    .author-name {
         text-align: center;
     }
-    .commit-input{
+
+    .commit-input {
         width: 100%;
     }
-    .about-book{
+
+    .about-book {
         text-align: center;
         width: 100%;
     }
-    .commit-time{
+
+    .commit-name {
+        font-size: 14px;
+    }
+
+    .commit-time {
         text-wrap: nowrap;
+        font-size: 11px;
     }
-    .commit{
-        width: min-content;
+
+    .commit-content {
+        font-size: 12px;
+    }
+
+    .commit {
+        width: 100%;
     }
 }

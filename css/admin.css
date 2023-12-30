@@ -176,7 +176,7 @@ ul{
     margin-left: 11px;
 }
 .main{
-    width: 100vh;
+    /* width: 100vh; */
     flex: 1;
     position: relative;
     background-color:#FFFAF5;;

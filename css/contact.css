@@ -1,139 +1,116 @@
-.contactMain{
-    padding-top: 140px;
+body{
     background: var(--light);
 }
+.contactMain {
+  padding-top: 140px;
+  background: var(--light);
+}
 .contact_section {
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .contact_section h2 {
-    font-family: var(--montserrat);
-    font-size: 36px;
-    font-weight: 900;
-    line-height: 71px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: var(--dark_grey);
+  font-family: var(--montserrat);
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 71px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--dark_grey);
 }
 
 .input_family {
-    margin-top: 29px;
+  margin-top: 29px;
 }
 
 .inputs {
-    display: flex;
-    justify-content: space-between;
-    gap: 36.54px;
-    margin: 0 auto;
-    margin-bottom: 33px;
-    ;
+  display: flex;
+  justify-content: space-between;
+  gap: 36.54px;
+  /* margin: 0 auto; */
+  margin-bottom: 33px;
 }
-
+.inputs input {
+  padding-left: 30px;
+  font-size: 23px;
+}
 .contact_input {
-    width: 45%;
-    height: 75px;
-    border: 1px solid var(--border);
+  width: 48%;
+  height: 75px;
+  border: 1px solid var(--border);
 }
 
-.contact_input::placeholder {
-    color: var(--placeHolder);
-    font-size: 23px;
-    font-weight: 400;
-    font-family: --crimson;
-    padding-left: 38px;
-}
 
-.input_message {
-    width: 100%;
-    height: 153px;
-    border: 1px solid var(--border);
-}
-
-.input_message::placeholder {
-    color: var(--placeHolder);
-    text-align: start;
-    font-size: 23px;
-    font-weight: 400;
-    font-family: var(--crimson);
-    padding-left: 38px;
-    padding-bottom: 107px;
+.textareaNote {
+  width: 100%;
+  padding: 30px;
+  font-size: 23px;
 }
 
 .send_btn {
-    text-align: center;
+  text-align: center;
 }
 
 .send_btn button {
-    background-color: var(--orange);
-    text-align: center;
-    color: white;
-    font-size: 30px;
-    font-family: var(--crimson);
-    font-weight: 400;
-    width: 45%;
-    height: 75px;
-    border: none;
-    margin-top: 85px;
-
+  background-color: var(--orange);
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-family: var(--crimson);
+  width: 45%;
+  padding: 14px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 85px;
+  transition: .3s ease-in-out;
+}
+.send_btn button:hover{
+    box-shadow: 0 0 30px 3px var(--orange);
+    transform: scale(1.05);
 }
 
-@media screen and (max-width:600px) {
-    .contact_section {
-        width: 80%;
-        margin-top: 41px;
-        margin-bottom: 126px;
-    }
+@media screen and (max-width: 600px) {
+  .contact_section {
+    width: 80%;
+    margin-top: 41px;
+    margin-bottom: 126px;
+  }
 
-    .contact_section h2 {
-        font-size: 25px;
-        line-height: 49px;
-        text-align: center;
-        color: var(--dark_grey);
-    }
+  .contact_section h2 {
+    font-size: 25px;
+    line-height: 49px;
+    text-align: center;
+    color: var(--dark_grey);
+  }
 
-    .input_family {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+  .input_family {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-    .inputs {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .contact_input {
-        width: 100%;
-        height: 39px;
-    }
+  .contact_input {
+    width: 100%;
+  }
 
-    .contact_input::placeholder {
-        color: var(--braun);
-        padding-left: 15px;
-        font-size: 16px;
-    }
 
-    .input_message {
-        width: 100%;
-        height: 101px;
-    }
+  .textareaNote {
+    width: 100%;
+  }
 
-    .input_message::placeholder {
-        color: var(--braun);
-        padding-left: 16px;
-        font-size: 16px;
-    }
-
-    .send_btn button {
-        width: 243px;
-        height: 37px;
-        font-size: 16px;
-       line-height: 20.8px; 
-       border-radius: 5px;
-    }
+  .send_btn button {
+    width: 100%;
+    font-size: 16px;
+    line-height: 20.8px;
+    border-radius: 5px;
+  }
 }

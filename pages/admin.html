@@ -321,7 +321,7 @@
                         bookName.value=bookTitle?bookTitle:'';
                         authorName.value=bookAuthorName?bookAuthorName:'';
                         bookDesc.value=bookDescription?bookDescription:'';
-                        bookImgUrl.value=bookImgLink?bookImgLink:'';
+                        bookImgUrl.value=bookImgLink?bookImgLink:'../assets/images/defaultBook.jpeg';
                         publicationYear.value=bookYear?bookYear:'';
                         localStorage.setItem('bookCode',bookID?bookID:generateRandomCode(12))
                         if (parseInt(publicationYear.value) >= 2020) {

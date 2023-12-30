@@ -83,7 +83,7 @@ const displayResults = (results) => {
       </div>
     `;
     carouselInner.appendChild(bookElement);
-    console.log(carouselInner.children.length);
+    // console.log(carouselInner.children.length);
   });
 
   if (results.length > 0) {

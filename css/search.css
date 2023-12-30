@@ -72,12 +72,11 @@
   display: none !important;
 }
 .carouselBox{
-  /* min-height: 300px; */
-  /* max-height: 500px;  */
+  height: 400px;
 }
 
 .carouselBox img{
-  /* width: 30%; */
+  width: 30%;
 }
 .carousel #leftIcon{
   margin-right: 200px;
